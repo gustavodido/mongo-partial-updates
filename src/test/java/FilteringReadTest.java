@@ -6,25 +6,22 @@ import org.springframework.data.mongodb.core.query.Query;
 import java.net.UnknownHostException;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
-public class MongoRunnerTest
-{
+public class FilteringReadTest {
     private MongoRunner mongoRunner;
 
     @Before
     public void setUp() { mongoRunner = new MongoRunner(); }
 
-    @Test public void shouldSuccessfullyConnectToDatabase() throws UnknownHostException {
-        assertTrue("connectionTest should return 'true'", mongoRunner.connectionTest());
-    }
-
     @Test public void shouldSuccessfullyGetCC() throws UnknownHostException {
         Query query = new Query();
         query.addCriteria(where("ccNumber").is("851470006"));
+        query.fields().include("ccNumber");
 
-        AllocationCC cc = mongoRunner.getTemplate().findOne(query, AllocationCC.class);
-        assertNotNull(cc);
+        for(int i = 0; i < 100; i++) {
+            AllocationCC cc = mongoRunner.getTemplate().findOne(query, AllocationCC.class);
+            assertNotNull(cc);
+        }
     }
 }

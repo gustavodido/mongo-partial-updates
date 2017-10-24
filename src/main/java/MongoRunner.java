@@ -11,12 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MongoRunner {
-    public boolean run() throws UnknownHostException {
-        MongoTemplate template = createMongoTemplateFor("", "allocation", "allocation", "showcase_inseasoncatalog", 1000);
-        return template.collectionExists("inSeasonCustomerChoice");
+    public boolean connectionTest() throws UnknownHostException {
+        return getTemplate().collectionExists("inSeasonCustomerChoice");
     }
 
-    private MongoTemplate createMongoTemplateFor(String host, String user, String password, String databaseName,
+    public MongoTemplate getTemplate() throws UnknownHostException {
+        return createMongoTemplateFor("", "allocation", "allocation", "showcase_inseasoncatalog", 1000);
+    }
+
+    private static MongoTemplate createMongoTemplateFor(String host, String user, String password, String databaseName,
                                                  int timeout) throws UnknownHostException {
         List<ServerAddress> seeds = new ArrayList<>();
         seeds.add(new ServerAddress(host));
