@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mongo-partial-updates.iml" filepath="$PROJECT_DIR$/.idea/modules/mongo-partial-updates.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mongo-partial-updates_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mongo-partial-updates_main.iml" group="mongo-partial-updates" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mongo-partial-updates_test.iml" filepath="$PROJECT_DIR$/.idea/modules/mongo-partial-updates_test.iml" group="mongo-partial-updates" />
+    </modules>
+  </component>
+</project>
