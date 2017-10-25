@@ -16,7 +16,7 @@ public class MongoRunner {
     }
 
     public MongoTemplate getTemplate() throws UnknownHostException {
-        return createMongoTemplateFor("", "allocation", "allocation", "showcase_inseasoncatalog", 1000);
+        return createMongoTemplateFor("dgphxiscdb001.phx.gapinc.dev:27017", "allocation", "allocation", "showcase_inseasoncatalog", 1000);
     }
 
     private static MongoTemplate createMongoTemplateFor(String host, String user, String password, String databaseName,
